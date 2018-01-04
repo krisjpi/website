@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import request from 'superagent';
+import moment from 'moment';
 
 import PageSection from './PageSection';
 
@@ -9,6 +10,10 @@ const getImgSrc = (str) => {
     const start = str.indexOf('src="') + 5;
     const end = str.substring(start).indexOf('"') + start;
     return str.substring(start, end);
+}
+
+const formatDate = (dateString) => {
+    return moment(dateString, 'YYYY-MM-DD HH:mm:ss').format('MM/DD/YYYY');
 }
 
 class BlogContentSection extends Component {
@@ -54,8 +59,12 @@ class BlogContentSection extends Component {
                     <h4>
                         <a href={item.link}>
                             <span className="blog-title">{item.title}</span>
-                            <span className="blog-author">by {item.author}</span>
-                            <span className="blog-date">{item.pubDate}</span>
+                            <span className="blog-author">
+                                by {item.author}
+                            </span>
+                            <span className="blog-date">
+                                {formatDate(item.pubDate)}
+                            </span>
                         </a>
                     </h4>
                 </Col>)}
