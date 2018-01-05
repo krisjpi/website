@@ -21,6 +21,7 @@
     "react-responsive-picture": "^2.0.0",
     "react-scripts": "0.9.5",
     "react-scroll": "^1.5.4",
+    "smartcrop": "^1.1.1",
     "superagent": "^3.6.0",
     "validator": "^8.2.0"
   },
